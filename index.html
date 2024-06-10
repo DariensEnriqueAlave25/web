@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>¡Feliz Cumpleaños, Viviana!</title>
+    <style>
+       body {
+        font-family: 'Arial', sans-serif;
+        background-image: url('img/Gojo.jpg');
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 80%;
+        max-width: 400px;
+        margin: 0 10px;
+    }
+
+    h1 {
+        color: #ff4d4d;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        color: #333;
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    input[type="date"] {
+        padding: 8px;
+        margin: 10px 0;
+        border: 2px solid #ff4d4d;
+        border-radius: 5px;
+        font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
+        height: 40px;
+    }
+
+    input[type="date"]:hover,
+    input[type="date"]:focus {
+        border-color: #ff3333;
+    }
+
+    input[type="submit"],
+    .btn-modal {
+        padding: 15px 30px;
+        margin: 10px 0;
+        cursor: pointer;
+        font-size: 18px;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        width: 100%;
+    }
+
+    input[type="submit"] {
+        background-color: #ff4d4d;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #ff3333;
+    }
+
+    .btn-modal {
+        background-color: #00bfff; /* Celeste */
+    }
+
+    .btn-modal:hover {
+        background-color: #009acd; /* Celeste más oscuro */
+    }
+
+    .modal-header {
+    text-align: center;
+    background-color: #ff4d4d; /* Cambia este color al que desees */
+    color: #fff; /* Color del texto del encabezado */
+    }
+
+    .modal-title {
+        margin: 0 auto; /* Asegura que el título esté centrado */
+    }
+
+    .btn-custom-close {
+        background-color: #00bfff; /* Color de fondo del botón */
+        color: #fff; /* Color del texto del botón */
+        border: none; /* Elimina el borde */
+        border-radius: 5px; /* Borde redondeado */
+        padding: 10px 20px; /* Padding para el botón */
+    }
+
+    .btn-custom-close:hover {
+        background-color: #009acd; /* Color de fondo del botón al pasar el ratón */
+        color: #fff; /* Asegura que el color del texto se mantenga blanco */
+    }
+
+    .modal-text {
+        text-align: justify; /* Justificar el texto */
+    }
+    /* Fuente para los botones */
+    input[type="submit"],
+    .btn-modal {
+        font-family: Arial, sans-serif; /* Cambia la fuente */
+    }
+
+    </style>
+</head>
+<body>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">❤️Feliz cumpleaños conejita❤️</h4>
+          </div>
+          <div class="modal-body">
+            <p class="modal-text">Un día como hoy nació una personita muy hermosa, una mujer maravillosa en 
+                todo sentido y quien diría que sería aquella mujer que me gusta tanto.
+                En este día tan especial para ti, quiero darte este presente, es
+                un detalle algo simple pero espero te guste, quiero que el día de hoy
+                solo tengas cosas buenas y disfrutes de todos los momentos buenos.
+                Es por eso que quiero ser la primera persona en desearte un feliz cumpleaños❤️,
+                te mando un abrazo y un beso, espero hoy la pases bien con tu familia, auquesea
+                por la noche ya que tu trabajas.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-custom-close" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="container">
+        <h1>¿Sabes que día es hoy hermosa?</h1>
+        <p>❤️Si quieres saberlo solo debes de ingresar la fecha de tu cumpleaños❤️</p>
+        <form id="birthdayForm" action="main.html" method="post">
+            <input type="date" id="fechaCumpleaños" name="fechaCumpleaños" required>
+            <br>
+            <input type="submit" value="Ingresar y ver 👀" class="btn btn-info"> <!-- Quitamos la clase btn-lg -->
+            <button type="button" class="btn btn-info btn-modal" data-toggle="modal" data-target="#myModal">Open Modal</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("birthdayForm").onsubmit = function() {
+            var fechaCumpleaños = document.getElementById("fechaCumpleaños").value;
+            var fechaCorrecta = "2024-06-11"; // Fecha de cumpleaños de Viviana
+            if (fechaCumpleaños === fechaCorrecta) {
+                return true; // Fecha correcta, enviar formulario
+            } else {
+                alert("Por favor, selecciona la fecha correcta de tu cumpleaños.");
+                return false; // Fecha incorrecta, no enviar formulario
+            }
+        };
+    </script>
+</body>
+</html>
